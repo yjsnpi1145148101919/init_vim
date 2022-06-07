@@ -1,0 +1,14 @@
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+set runtimepath+=~/.cache/dein/repos/github.com/mattn/emmet-vim/
+'''
+
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+hook_add = '''
+set runtimepath+=~/.cache/dein/repos/github.com/alvan/vim-closetag/
+let g:closetag_filenames = "*.html,*.xml"
+'''
+
