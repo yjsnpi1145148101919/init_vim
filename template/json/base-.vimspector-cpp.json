@@ -1,0 +1,62 @@
+{
+  "adapters": {
+    "CodeLLDB - StopOnEntry": {
+      "extends": "CodeLLDB",
+      "name": "CoHostingLLDB"
+    }
+  },
+  "configurations": {
+    "CodeLLDB": {
+      "adapter": "CodeLLDB",
+      "variables": {
+        "BUILDME": {
+          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/foo.cpp"
+        }
+      },
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/a.out"
+      }
+    },
+    "CodeLLDB-StopOnEntryFalse": {
+      "extends": "CodeLLDB",
+      "adapter": "CodeLLDB - StopOnEntry",
+      "configuration": {
+        "stopOnEntry": false
+      }
+    },
+    "CodeLLDB-StopOnEntryTrue": {
+      "extends": "CodeLLDB-StopOnEntryFalse",
+      "configuration": {
+        "stopOnEntry": true
+      }
+    },
+    "lldb-vscode": {
+      "adapter": "lldb-vscode",
+      "variables": {
+        "BUILDME": {
+          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/a.out.cpp"
+        }
+      },
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/a.out",
+        "stopAtEntry": true
+      }
+    },
+    "cpptools": {
+      "adapter": "vscode-cpptools",
+      "variables": {
+        "BUILDME": {
+          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/foo.cpp"
+        }
+      },
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/a.out",
+        "stopOnEntry": true,
+        "MIMode": "lldb"
+      }
+    }
+  }
+}

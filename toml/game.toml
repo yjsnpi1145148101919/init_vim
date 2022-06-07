@@ -1,0 +1,10 @@
+[[plugins]]
+repo = 'rbtnn/vim-game_engine'
+[[plugins]]
+repo = 'rbtnn/vim-puyo'
+depends = 'vim-game_engine'
+[[plugins]]
+repo = 'rbtnn/vim-mario'
+depends = 'vim-game_engine'
+[[plugins]]
+repo = 'koron/maze3d-vim'

@@ -1,0 +1,41 @@
+[[plugins]]
+repo = 'puremourning/vimspector'
+on_ft = ['python','javascript','cpp','js','php','c']
+build = './install_gadget.py --all --force-enable-node --force-enable-firefox --force-enable-php'
+hook_add = '''
+nnoremap <Leader>debug :call vimspector#Launch()<CR>
+nnoremap <Leader>reset :call vimspector#Reset()<CR>
+nnoremap <Leader>stop :call vimspector#Stop()<CR>
+nnoremap <Leader>continue :call vimspector#Continue()<CR>
+
+nnoremap <C-b> :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <leader>B :call vimspector#ClearBreakpoints()<CR>
+nnoremap <leader><C-l><C-b> :call vimspector#ListBreakpoints()<CR>
+nnoremap <leader>gotocurrentline :call vimspector#GoToCurrentLine()<CR>
+
+nmap <Leader>runtocursor <Plug>VimspectorRunToCursor
+nmap <Leader>restart <Plug>VimspectorRestart
+nmap <c-o> <Plug>VimspectorStepOver
+nmap <c-s> <Plug>VimspectorStepInto
+nmap <c-l> <Plug>VimspectorStepOut
+nmap <Leader>j <Plug>VimspectorUpFrame
+nmap <Leader>k <Plug>VimspectorDownFrame
+nmap <Leader><c-b> <Plug>VimspectorBallonEval
+autocmd BufWritePost * silent! call SaveBreakpoint()<CR>
+autocmd BufReadPost * silent! execute LoadBreakpoint()<CR>
+
+function! LoadBreakpoint()
+  if filereadable('.vimspector.session') == 1
+    VimspectorLoadSession
+  endif
+endfunction
+
+function! SaveBreakpoint()
+  let s:current_file_path = expand('%:p')
+  py3 result = 1 if vim.eval('s:current_file_path') in [i.get('filename') for i in _vimspector_session._breakpoints._breakpoints_view._breakpoint_list] else 0;vim.command('let s:result = {}'.format(result))
+  if s:result == 1
+    VimspectorMkSession
+  endif
+  echo s:result
+endfunction
+'''
