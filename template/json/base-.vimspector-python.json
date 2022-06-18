@@ -5,7 +5,7 @@
       "default": true,
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/foo.py",
+        "program": "${workspaceRoot}/{{_input_:file_name}}.py",
         "cwd": "${workspaceRoot}",
         "stopOnEntry": true
       },

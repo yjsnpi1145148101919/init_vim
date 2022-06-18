@@ -3,21 +3,21 @@ repo = 'puremourning/vimspector'
 on_ft = ['python','javascript','cpp','js','php','c']
 build = './install_gadget.py --all --force-enable-node --force-enable-firefox --force-enable-php'
 hook_add = '''
-nnoremap <Leader>debug :call vimspector#Launch()<CR>
-nnoremap <Leader>reset :call vimspector#Reset()<CR>
+nnoremap <c-d> :call vimspector#Launch()<CR>
+nnoremap <Leader>d :call vimspector#Reset()<CR>
 nnoremap <Leader>stop :call vimspector#Stop()<CR>
 nnoremap <Leader>continue :call vimspector#Continue()<CR>
 
 nnoremap <C-b> :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <leader>B :call vimspector#ClearBreakpoints()<CR>
-nnoremap <leader><C-l><C-b> :call vimspector#ListBreakpoints()<CR>
+nnoremap <leader>b :call vimspector#ClearBreakpoints()<CR>
+nnoremap <Leader>lb  :call vimspector#ListBreakpoints()<CR>
 nnoremap <leader>gotocurrentline :call vimspector#GoToCurrentLine()<CR>
 
-nmap <Leader>runtocursor <Plug>VimspectorRunToCursor
+nmap <Leader>rc <Plug>VimspectorRunToCursor
 nmap <Leader>restart <Plug>VimspectorRestart
-nmap <c-o> <Plug>VimspectorStepOver
+nmap <c-n> <Plug>VimspectorStepOver
 nmap <c-s> <Plug>VimspectorStepInto
-nmap <c-l> <Plug>VimspectorStepOut
+nmap <c-c> <Plug>VimspectorStepOut
 nmap <Leader>j <Plug>VimspectorUpFrame
 nmap <Leader>k <Plug>VimspectorDownFrame
 nmap <Leader><c-b> <Plug>VimspectorBallonEval

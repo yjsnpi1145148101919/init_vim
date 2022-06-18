@@ -10,7 +10,7 @@ repo = 'vim-airline/vim-airline'
 hook_add = '''
 "refered https://original-game.com/vim-airline/
 let g:airline#extensions#tabline#enabled = 1
-nmap <Leader><Tab> <Plug>AirlineSelectPrevTab<CR>
+nmap <S-Tab> <Plug>AirlineSelectPrevTab<CR>
 nmap <Tab> <Plug>AirlineSelectNextTab<CR>
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -39,11 +39,17 @@ let g:airline_mode_map = {
 "let g:airline_symbols.spell = ''
 "let g:airline_symbols.notexists = ''
 "let g:airline_symbols.whitespace = ''
-let g:airline#extensions#default#layout = [
+let g:airlinek#extensions#default#layout = [
 \ [ 'a', 'b', 'c' ],
 \ [ 'x', 'y', 'z', 'error', 'warning']
 \ ]
 let g:airline#ectensions#tabline#show_close_button = 1
 let g:airline#extensions#tabline#close_symbol = 'X'
 autocmd VimEnter * AirlineRefresh
+'''
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+source ~/.cache/dein/repos/github.com/tomasr/molokai/colors/molokai.vim
 '''

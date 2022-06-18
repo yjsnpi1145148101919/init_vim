@@ -1,4 +1,5 @@
-let g:python3_host_prog = system('which python3')
+"let g:python3_host_prog = system('which python3')
+let g:python3_host_prog = "/usr/bin/python3"
 "set ambiwidth=double
 set autoindent
 set autoread
@@ -14,7 +15,7 @@ set nocindent
 "set cinoptions+=:0
 "set cinwords
 "set termwinkey=<F2>
-set clipboard=unnamed
+set clipboard=unnamedplus "clip goes to register and clipboard
 set cmdheight=2
 set cmdwinheight=5
 "set completeslash
@@ -29,7 +30,7 @@ set encoding=utf-8
 set noerrorbells
 set equalalways
 "set expandtab
-"set fileencoding=utf-8
+set fileencoding=utf-8
 "set fileencodings=cp931,sjis
 set fileformat=unix
 set fileignorecase
@@ -129,6 +130,7 @@ nnoremap <Leader>e :Lex<CR>
 nnoremap <Leader>l $
 nnoremap <Leader>h ^
 nnoremap <Leader>f :%s/<C-r><C-w>//g<LEFT><LEFT>
+nnoremap <Leader>register :reg<CR>
 
 nnoremap <silent> j gj
 nnoremap <silent> k gk

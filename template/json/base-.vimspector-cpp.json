@@ -10,12 +10,12 @@
       "adapter": "CodeLLDB",
       "variables": {
         "BUILDME": {
-          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/foo.cpp"
+          "shell": "g++ -o ${workspaceRoot}/{{_input_:out_file}}.out -g -std=c++17 ${workspaceRoot}/{{_input_:in_file}}.cpp"
         }
       },
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/a.out"
+        "program": "${workspaceRoot}/{{_input_:out_file}}.out"
       }
     },
     "CodeLLDB-StopOnEntryFalse": {
@@ -35,12 +35,12 @@
       "adapter": "lldb-vscode",
       "variables": {
         "BUILDME": {
-          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/a.out.cpp"
+          "shell": "g++ -o ${workspaceRoot}/{{_input_:out_file}}.out -g -std=c++17 ${workspaceRoot}/{{_input_:in_file}}.cpp"
         }
       },
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/a.out",
+        "program": "${workspaceRoot}/{{_input_:out_file}}.out",
         "stopAtEntry": true
       }
     },
@@ -48,12 +48,12 @@
       "adapter": "vscode-cpptools",
       "variables": {
         "BUILDME": {
-          "shell": "g++ -o ${workspaceRoot}/a.out -g -std=c++17 ${workspaceRoot}/foo.cpp"
+          "shell": "g++ -o ${workspaceRoot}/{{_input_:out_file}}.out -g -std=c++17 ${workspaceRoot}/{{_input_:in_file}}.cpp"
         }
       },
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/a.out",
+        "program": "${workspaceRoot}/{{_input_:out_file}}.out",
         "stopOnEntry": true,
         "MIMode": "lldb"
       }
